@@ -1,0 +1,69 @@
+﻿{
+    "ConfigItems": 
+        [
+          
+             {
+                "Name": "UCSPasswordEncyptionKey", 
+                "Value": "TPICAP"   
+                
+            }, 
+
+            {
+                "Name": "EnableServiceNow", 
+                "Value": "yes"   
+            }, 
+
+            {
+                "Name": "ServiceNowURL", 
+                "Value": "tpicaptest.service-now.com"   
+            }, 
+
+            {
+                "Name": "SerivceNowUsername", 
+                "Value": "appDservice"   
+            }, 
+
+            {
+                "Name": "tierID",
+                "Value": "293900"
+            },
+
+            {
+                "Name": "UCSURL", 
+                "Value": "10.51.31.233"   
+            },
+
+             {
+                "Name": "analyticsEndpoint", 
+                "Value": "https://fra-ana-api.saas.appdynamics.com"   
+            },
+
+            {
+                "Name": "X-Events-API-AccountName", 
+                "Value": "tpicap-dev_282fa861-554e-4073-ba0c-a5f77f27ad11"   
+            },
+
+            {
+                "Name": "X-Events-API-Key", 
+                "Value": "49b3aa74-fe2d-403f-91c8-4516c2c8879f"   
+            },
+
+
+            {
+                "Name": "UCS-Faults-Schema", 
+                "Value": "UCS_Faults_Dev"   
+            },
+            
+            {
+                "Name": "PSU-Stats-Schema", 
+                "Value": "UCS_PSU_Stats"   
+            },
+
+            {
+                "Name": "UCS-Server-Temperature-Schema", 
+                "Value": "UCS_Server_Temperature"   
+            }
+
+           
+        ]
+    }

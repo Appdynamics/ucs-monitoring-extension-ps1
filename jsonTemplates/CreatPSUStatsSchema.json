@@ -1,0 +1,1 @@
+{ "schema" : { "Dn": "string", "AmbientTemp": "string", "AmbientTempAvg": "string", "Input210v": "float", "Input210vAvg": "float", "Output12v": "float", "Output12vAvg": "float","OutputCurrentAvg": "float", "OutputPowerAvg": "float", "Suspect": "string"   } }

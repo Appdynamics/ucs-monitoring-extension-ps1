@@ -1,0 +1,1 @@
+{ "schema" : { "Dn": "string", "FmTempSenIo": "string", "FmTempSenIoAvg": "string", "FmTempSenIoMax": "string", "FmTempSenRearAvg": "string", "FmTempSenRear": "string", "FmTempSenRearMax": "string", "Suspect": "string" } }
