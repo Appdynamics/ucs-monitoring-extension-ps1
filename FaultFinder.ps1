@@ -34,7 +34,7 @@ $PSUStatsJSON = ".\PSUStats.json"
 $ServerTempJSON = ".\ServerTempStats.json"
 
 #43800 
-$queryInterVal = 100 #minimum of 1 minute. Ideal 5 minutes. 
+$queryInterVal = 2 #minimum of 1 minute. Ideal 2 minutes. 
 
 $dateTime = Get-Date
 $timeNow = $dateTime.ToString("yyyy/MM/dd HH:mm") 
