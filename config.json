@@ -4,7 +4,7 @@
           
              {
                 "Name": "UCSPasswordEncyptionKey", 
-                "Value": "TPICAP"   
+                "Value": "INSERT ANY STRING HERE"   
                 
             }, 
 
@@ -15,22 +15,22 @@
 
             {
                 "Name": "ServiceNowURL", 
-                "Value": "tpicaptest.service-now.com"   
+                "Value": "<customer>.service-now.com"   
             }, 
 
             {
-                "Name": "SerivceNowUsername", 
-                "Value": "appDservice"   
+                "Name": "SerivceNowAssignmentGroup", 
+                "Value": "Global Hosting Services"   
             }, 
 
             {
                 "Name": "tierID",
-                "Value": "293900"
+                "Value": "XXXXXX"
             },
 
             {
                 "Name": "UCSURL", 
-                "Value": "10.51.31.233"   
+                "Value": "IPAddress OR DomainName without HTTP(S)"   
             },
 
              {
@@ -40,18 +40,18 @@
 
             {
                 "Name": "X-Events-API-AccountName", 
-                "Value": "tpicap-dev_282fa861-554e-4073-ba0c-a5f77f27ad11"   
+                "Value": "GlobalAccountName"   
             },
 
             {
                 "Name": "X-Events-API-Key", 
-                "Value": "49b3aa74-fe2d-403f-91c8-4516c2c8879f"   
+                "Value": "AnalyticsKEY"   
             },
 
 
             {
                 "Name": "UCS-Faults-Schema", 
-                "Value": "UCS_Faults_Dev"   
+                "Value": "UCS_Faults"   
             },
             
             {

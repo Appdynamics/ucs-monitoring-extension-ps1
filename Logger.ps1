@@ -5,29 +5,29 @@
 #$LogPath = $LogDir + '\' + $iLogFile
 
 # Function to Write into Log file
-Function Write-Log {
-    [CmdletBinding()]
-    Param(
-        [Parameter(Mandatory = $False)]
-        [ValidateSet("INFO", "WARN", "ERROR", "FATAL", "DEBUG")]
-        [String]
-        $Level = "INFO",
+function Write-Log {
+  [CmdletBinding()]
+  param(
+    [Parameter(Mandatory = $False)]
+    [ValidateSet("INFO","WARN","ERROR","FATAL","DEBUG")]
+    [string]
+    $Level = "INFO",
 
-        [Parameter(Mandatory = $True)]
-        [string]
-        $Message,
+    [Parameter(Mandatory = $True)]
+    [string]
+    $Message,
 
-        [Parameter(Mandatory = $False)]
-        [string]
-        $logfile
-    )
+    [Parameter(Mandatory = $False)]
+    [string]
+    $logfile
+  )
 
-    $Stamp = (Get-Date).toString("yyyy/MM/dd HH:mm:ss")
-    $Line = "$Stamp $Level $Message"
-    if ($logfile) {
-        Add-Content $logfile -Value $Line
-    }
-    else {
-        Write-Output $Line
-    }
+  $Stamp = (Get-Date).ToString("yyyy/MM/dd HH:mm:ss")
+  $Line = "$Stamp $Level $Message"
+  if ($logfile) {
+    Add-Content $logfile -Value $Line
+  }
+  else {
+    Write-Output $Line
+  }
 }
