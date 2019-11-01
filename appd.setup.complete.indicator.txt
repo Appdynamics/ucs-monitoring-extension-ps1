@@ -1,1 +1,0 @@
-The presense of this file indicates that the setup is complete. Delete it to restart the setup

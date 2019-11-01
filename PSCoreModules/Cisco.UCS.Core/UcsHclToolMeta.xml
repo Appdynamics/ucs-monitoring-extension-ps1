@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HclToolUrlMeta>
+  <ManageHardwareProfileUrl>https://ucshcltool.cloudapps.cisco.com/secure/rest/hardwareProfile/manageHardwareProfile</ManageHardwareProfileUrl>
+  <ManageMultiHardwareProfileUrl>https://ucshcltool.cloudapps.cisco.com/secure/rest/hardwareProfile/manageMultiHardwareProfiles</ManageMultiHardwareProfileUrl>
+  <GetAllHardwareProfileUrl>https://ucshcltool.cloudapps.cisco.com/secure/rest/hardwareProfile/loadAllUserHardwareProfiles</GetAllHardwareProfileUrl>
+  <GetHardwareProfileByNameUrl>https://ucshcltool.cloudapps.cisco.com/secure/rest/hardwareProfile/getUserHardwareProfileByName</GetHardwareProfileByNameUrl>
+  <GetHardwareProfileByIdUrl>https://ucshcltool.cloudapps.cisco.com/secure/rest/hardwareProfile/getUserHardwareProfile</GetHardwareProfileByIdUrl>
+  <DeleteHardwareProfileUrl>https://ucshcltool.cloudapps.cisco.com/secure/rest/hardwareProfile/deleteHardwareProfile</DeleteHardwareProfileUrl>
+  <GetSupportedUnsupportedUrl>https://ucshcltool.cloudapps.cisco.com/secure/rest/hardwareProfile/supportedUnsupportedInfo</GetSupportedUnsupportedUrl>
+  <GetOsVendorUrl>https://ucshcltool.cloudapps.cisco.com/public/rest/osvendor/loadOsVendors</GetOsVendorUrl>
+  <GetOsVersionUrl>https://ucshcltool.cloudapps.cisco.com/public/rest/osvendor/loadOsVersions</GetOsVersionUrl>
+  <LoadAdvisoriesUrl>https://ucshcltool.cloudapps.cisco.com/secure/rest/hardwareProfile/loadAdvisories</LoadAdvisoriesUrl>
+  <GetAdvisoryTypesUrl>https://ucshcltool.cloudapps.cisco.com/public/rest/advisory/loadAdvisoryTypes</GetAdvisoryTypesUrl>
+</HclToolUrlMeta>

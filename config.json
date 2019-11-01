@@ -4,7 +4,7 @@
           
              {
                 "Name": "UCSPasswordEncyptionKey", 
-                "Value": "XXXXX"   
+                "Value": "TPICAP"   
                 
             }, 
 
@@ -15,7 +15,7 @@
 
             {
                 "Name": "ServiceNowURL", 
-                "Value": "customer.service-now.com"   
+                "Value": "tpicaptest.service-now.com"   
             }, 
 
             {
@@ -40,18 +40,18 @@
 
             {
                 "Name": "X-Events-API-AccountName", 
-                "Value": "GlobalAccountName_from_license_page"   
+                "Value": "tpicap-dev_282fa861-554e-4073-ba0c-a5f77f27ad11"   
             },
 
             {
                 "Name": "X-Events-API-Key", 
-                "Value": "Generated_Analytics_key_from_analaytics_configuration_page"   
+                "Value": "49b3aa74-fe2d-403f-91c8-4516c2c8879f"   
             },
 
 
             {
                 "Name": "UCS-Faults-Schema", 
-                "Value": "UCS_Faults"   
+                "Value": "UCS_Faults_Dev"   
             },
             
             {

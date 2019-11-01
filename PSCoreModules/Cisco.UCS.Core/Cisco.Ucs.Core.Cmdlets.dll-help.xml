@@ -1,0 +1,1474 @@
+<?xml version="1.0" ?>
+<helpItems schema="maml" xmlns="http://msh">
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Add-UcsHardwareProfile</command:name>
+   <maml:description>
+    <maml:para>Uploads hardware profile object.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Add
+     UcsHardwareProfile
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Uploads hardware profile object. User can save multiple hardware profiles and can be used later to get the compatible driver versions for the adaptors in the profile.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Add-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter pipeline="true (ByPropertyValue)" required="true">
+     <maml:name>HardwareProfile</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile object to be added.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">CiscoHardwareProfile</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Add-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>Path</maml:name>
+     <maml:description>
+      <maml:para>Specifies path at which Hardware Profile JSON file is located.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Add-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>LiteralPath</maml:name>
+     <maml:description>
+      <maml:para>Specifies path at which Hardware Profile JSON file is located.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>Credential</maml:name>
+    <maml:description>
+     <maml:para>Specifies Cisco.com credential.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">PSCredential</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>HardwareProfile</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile object to be added.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">CiscoHardwareProfile</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Path</maml:name>
+    <maml:description>
+     <maml:para>Specifies path at which Hardware Profile JSON file is located.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>LiteralPath</maml:name>
+    <maml:description>
+     <maml:para>Specifies path at which Hardware Profile JSON file is located.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Proxy</maml:name>
+    <maml:description>
+     <maml:para>Specifies the webProxy object.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">WebProxy</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Export-UcsPSSession</command:name>
+   <maml:description>
+    <maml:para>Exports Managed Object of type BaseHandle.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Export
+     UcsPSSession
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Exports Managed Object of type BaseHandle.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Export-UcsPSSession</maml:name>
+    <command:parameter required="true">
+     <maml:name>LiteralPath</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>Key</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">SecureString</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Merge</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Ucs</maml:name>
+     <maml:description>
+      <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Export-UcsPSSession</maml:name>
+    <command:parameter required="true">
+     <maml:name>Path</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>Key</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">SecureString</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Merge</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Ucs</maml:name>
+     <maml:description>
+      <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>LiteralPath</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Path</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Key</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">SecureString</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Merge</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Ucs</maml:name>
+    <maml:description>
+     <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Get-UcsHardwareProfile</command:name>
+   <maml:description>
+    <maml:para>Gets hardware profile object.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Get
+     UcsHardwareProfile
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Gets hardware profile object of type CiscoHardwareProfileOut.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Get-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Get-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter pipeline="true (ByPropertyValue)" required="true">
+     <maml:name>Name</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile name.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Get-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter pipeline="true (ByPropertyValue)" required="true">
+     <maml:name>Id</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile id.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>Credential</maml:name>
+    <maml:description>
+     <maml:para>Specifies Cisco.com credential.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">PSCredential</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Name</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile name.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Id</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile id.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Proxy</maml:name>
+    <maml:description>
+     <maml:para>Specifies the webProxy object.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">WebProxy</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Get-UcsHclAdvisoryTypes</command:name>
+   <maml:description>
+    <maml:para>Gets the list of supported advisory types from the HCL tool</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Get
+     UcsHclAdvisoryTypes
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Gets the list of supported advisory types from the HCL tool</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Get-UcsHclAdvisoryTypes</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>Credential</maml:name>
+    <maml:description>
+     <maml:para>Specifies Cisco.com credential.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">PSCredential</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Proxy</maml:name>
+    <maml:description>
+     <maml:para>Specifies the webProxy object.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">WebProxy</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Get-UcsOperatingSystem</command:name>
+   <maml:description>
+    <maml:para>Gets operating system version information.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Get
+     UcsOperatingSystem
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Gets operating system version object of type OsVersion.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Get-UcsOperatingSystem</maml:name>
+    <command:parameter pipeline="true (ByPropertyValue)" required="true">
+     <maml:name>OsVendor</maml:name>
+     <maml:description>
+      <maml:para>Specifies object of type OsVendor.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">OsVendor</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Get-UcsOperatingSystem</maml:name>
+    <command:parameter required="true">
+     <maml:name>OsVendorTreeId</maml:name>
+     <maml:description>
+      <maml:para>Specifies Tree Id of os vendor. Cmdlet will fetch specific os version based upon osVendor tree id.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>OsVendor</maml:name>
+    <maml:description>
+     <maml:para>Specifies object of type OsVendor.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">OsVendor</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>OsVendorTreeId</maml:name>
+    <maml:description>
+     <maml:para>Specifies Tree Id of os vendor. Cmdlet will fetch specific os version based upon osVendor tree id.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Proxy</maml:name>
+    <maml:description>
+     <maml:para>Specifies the webProxy object.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">WebProxy</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Get-UcsOsVendor</command:name>
+   <maml:description>
+    <maml:para>Gets Managed Object of type OsVendor. </maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Get
+     UcsOsVendor
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Gets Managed Object of type OsVendor. </maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Get-UcsOsVendor</maml:name>
+    <command:parameter>
+     <maml:name>Id</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>Id</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Proxy</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">WebProxy</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Get-UcsPSSession</command:name>
+   <maml:description>
+    <maml:para>Gets Managed Object of type BaseHandle.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Get
+     UcsPSSession
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Gets Managed Object of type BaseHandle.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Get-UcsPSSession</maml:name>
+    <command:parameter>
+     <maml:name>Ucs</maml:name>
+     <maml:description>
+      <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>Ucs</maml:name>
+    <maml:description>
+     <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Get-UcsPowerToolCommunity</command:name>
+   <maml:description>
+    <maml:para>Gets the PowerTool community URL and launches the community URL in browser.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Get
+     UcsPowerToolCommunity
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Gets the PowerTool community URL and launches the community URL in browser.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Get-UcsPowerToolCommunity</maml:name>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters/>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Get-UcsPowerToolConfiguration</command:name>
+   <maml:description>
+    <maml:para>Gets Object of type PowerToolConfiguration.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Get
+     UcsPowerToolConfiguration
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Gets Object of type PowerToolConfiguration.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Get-UcsPowerToolConfiguration</maml:name>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters/>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Get-UcsSoftwareImage</command:name>
+   <maml:description>
+    <maml:para>Downloads specified image from www.cisco.com.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Get
+     UcsSoftwareImage
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Downloads specified image from www.cisco.com.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Get-UcsSoftwareImage</maml:name>
+    <command:parameter pipeline="true (ByPropertyValue)" required="true">
+     <maml:name>SoftwareImage</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">ImageDetails</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>Path</maml:name>
+     <maml:description>
+      <maml:para>Specifies path at which image to be downloaded.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>SoftwareImage</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">ImageDetails</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Path</maml:name>
+    <maml:description>
+     <maml:para>Specifies path at which image to be downloaded.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Get-UcsSoftwareImageList</command:name>
+   <maml:description>
+    <maml:para>Gets Managed Object of type ImageDetails. </maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Get
+     UcsSoftwareImageList
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Gets Managed Object of type ImageDetails. </maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Get-UcsSoftwareImageList</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Category</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Type</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Model</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>AllReleases</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Ucs</maml:name>
+     <maml:description>
+      <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Get-UcsSoftwareImageList</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>MdfId</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">uint</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>SoftwareId</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">uint</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>AllReleases</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Ucs</maml:name>
+     <maml:description>
+      <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>Credential</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">PSCredential</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Category</maml:name>
+    <maml:description>
+     <maml:para>TBD. Valid values are: Default,Infrastructure,ModularServer,Rack</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Type</maml:name>
+    <maml:description>
+     <maml:para>TBD. Valid values are: Firmware,Drivers</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Model</maml:name>
+    <maml:description>
+     <maml:para>TBD. Valid values are: UCSC-C3160,UCSC-C3260,UCSC-C460-M4,UCSC-C460-M2,UCSC-C420-M3,UCSC-C260-M2,UCSC-C240-M4,UCSC-C240-M3,UCSC-C220-M4,UCSC-C220-M3,UCSC-C24-M3,UCSC-C22-M3,UCS-E180D-M2,UCS-E160D-M2,UCS-E160DP-M1,UCS-E160D-M1,UCS-E140D-M1,UCS-E140DP-M1,UCS-EN140S-M2,UCS-EN140S-M1,UCS-EN120S-M2</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>MdfId</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">uint</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>SoftwareId</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">uint</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>AllReleases</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Proxy</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">WebProxy</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Ucs</maml:name>
+    <maml:description>
+     <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Invoke-UcsHclUtility</command:name>
+   <maml:description>
+    <maml:para>Gets firmware version and driver version needed for each of the components/adaptors in the hardware profile.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Invoke
+     UcsHclUtility
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Gets firmware version and driver version needed for each of the components/adaptors in the hardware profile.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Invoke-UcsHclUtility</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter pipeline="true (ByPropertyValue)" required="true">
+     <maml:name>HardwareProfile</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">CiscoHardwareProfile</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Tree</maml:name>
+     <maml:description>
+      <maml:para>Specifies the switch parameter to show the expanded output of cmdlet.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Advisories</maml:name>
+     <maml:description>
+      <maml:para>Specifies the switch parameter to show the Advisories published for the components/adaptors that is part of the hardware profile</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>AdvisoryType</maml:name>
+     <maml:description>
+      <maml:para>Specifies the type of advisory to be fetched</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Invoke-UcsHclUtility</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>Name</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile name.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Tree</maml:name>
+     <maml:description>
+      <maml:para>Specifies the switch parameter to show the expanded output of cmdlet.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Advisories</maml:name>
+     <maml:description>
+      <maml:para>Specifies the switch parameter to show the Advisories published for the components/adaptors that is part of the hardware profile</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>AdvisoryType</maml:name>
+     <maml:description>
+      <maml:para>Specifies the type of advisory to be fetched</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Invoke-UcsHclUtility</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>Id</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile id.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Tree</maml:name>
+     <maml:description>
+      <maml:para>Specifies the switch parameter to show the expanded output of cmdlet.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Advisories</maml:name>
+     <maml:description>
+      <maml:para>Specifies the switch parameter to show the Advisories published for the components/adaptors that is part of the hardware profile</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>AdvisoryType</maml:name>
+     <maml:description>
+      <maml:para>Specifies the type of advisory to be fetched</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>Credential</maml:name>
+    <maml:description>
+     <maml:para>Specifies Cisco.com credential.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">PSCredential</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>HardwareProfile</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">CiscoHardwareProfile</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Name</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile name.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Id</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile id.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Proxy</maml:name>
+    <maml:description>
+     <maml:para>Specifies the webProxy object.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">WebProxy</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Tree</maml:name>
+    <maml:description>
+     <maml:para>Specifies the switch parameter to show the expanded output of cmdlet.</maml:para>
+    </maml:description>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Advisories</maml:name>
+    <maml:description>
+     <maml:para>Specifies the switch parameter to show the Advisories published for the components/adaptors that is part of the hardware profile</maml:para>
+    </maml:description>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>AdvisoryType</maml:name>
+    <maml:description>
+     <maml:para>Specifies the type of advisory to be fetched</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>New-UcsHardwareProfile</command:name>
+   <maml:description>
+    <maml:para>Creates a new hardware profile object.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     New
+     UcsHardwareProfile
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Creates a new hardware profile object of type CiscoHardwareProfile. By default, new hardware profile will be created by cmdlet with name based upon the serial/model of the server mo provided.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>New-UcsHardwareProfile</maml:name>
+    <command:parameter>
+     <maml:name>NamePrefix</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile name prefix which user wants to add in front of the autogenerated name of hardware profile.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>NoSerialNumber</maml:name>
+     <maml:description>
+      <maml:para>Switch parameter instructs cmdlet not to capture Serial Number inside the Hardware Profile.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter pipeline="true (ByPropertyValue)" required="true">
+     <maml:name>ManagedObject</maml:name>
+     <maml:description>
+      <maml:para>Specifies Managed Objects used to create new hardware profile object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">ManagedObject</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>OsVendorCode</maml:name>
+     <maml:description>
+      <maml:para>Specifies operating system vendor code.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>OsVersionCode</maml:name>
+     <maml:description>
+      <maml:para>Specifies operating system version code.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Ucs</maml:name>
+     <maml:description>
+      <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>New-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Name</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile name.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>NoPostFix</maml:name>
+     <maml:description>
+      <maml:para>Switch parameter instructs cmdlet not to append autogenerated postfix numerics to the name provided by user. This parameter is used with Name parameter.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>NoSerialNumber</maml:name>
+     <maml:description>
+      <maml:para>Switch parameter instructs cmdlet not to capture Serial Number inside the Hardware Profile.</maml:para>
+     </maml:description>
+    </command:parameter>
+    <command:parameter pipeline="true (ByPropertyValue)" required="true">
+     <maml:name>ManagedObject</maml:name>
+     <maml:description>
+      <maml:para>Specifies Managed Objects used to create new hardware profile object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">ManagedObject</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>OsVendorCode</maml:name>
+     <maml:description>
+      <maml:para>Specifies operating system vendor code.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>OsVersionCode</maml:name>
+     <maml:description>
+      <maml:para>Specifies operating system version code.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Ucs</maml:name>
+     <maml:description>
+      <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>NamePrefix</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile name prefix which user wants to add in front of the autogenerated name of hardware profile.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Name</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile name.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>NoPostFix</maml:name>
+    <maml:description>
+     <maml:para>Switch parameter instructs cmdlet not to append autogenerated postfix numerics to the name provided by user. This parameter is used with Name parameter.</maml:para>
+    </maml:description>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>NoSerialNumber</maml:name>
+    <maml:description>
+     <maml:para>Switch parameter instructs cmdlet not to capture Serial Number inside the Hardware Profile.</maml:para>
+    </maml:description>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>ManagedObject</maml:name>
+    <maml:description>
+     <maml:para>Specifies Managed Objects used to create new hardware profile object.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">ManagedObject</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>OsVendorCode</maml:name>
+    <maml:description>
+     <maml:para>Specifies operating system vendor code.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>OsVersionCode</maml:name>
+    <maml:description>
+     <maml:para>Specifies operating system version code.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Ucs</maml:name>
+    <maml:description>
+     <maml:para>Specifies a list of ucs connection object(s)</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">BaseHandle[]</command:parameterValue>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Remove-UcsHardwareProfile</command:name>
+   <maml:description>
+    <maml:para>Removes hardware profile object.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Remove
+     UcsHardwareProfile
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Removes hardware profile object.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Remove-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter pipeline="true (ByPropertyValue)" required="true">
+     <maml:name>HardwareProfile</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile object to be removed.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">CiscoHardwareProfile</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Force</maml:name>
+     <maml:description>
+      <maml:para>Force Operation. There will be no prompts for confirmation.</maml:para>
+     </maml:description>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Remove-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>Id</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile Id to be removed.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Force</maml:name>
+     <maml:description>
+      <maml:para>Force Operation. There will be no prompts for confirmation.</maml:para>
+     </maml:description>
+    </command:parameter>
+   </command:syntaxItem>
+   <command:syntaxItem>
+    <maml:name>Remove-UcsHardwareProfile</maml:name>
+    <command:parameter required="true">
+     <maml:name>Credential</maml:name>
+     <maml:description>
+      <maml:para>Specifies Cisco.com credential.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">PSCredential</command:parameterValue>
+    </command:parameter>
+    <command:parameter required="true">
+     <maml:name>Name</maml:name>
+     <maml:description>
+      <maml:para>Specifies hardware profile name to be removed.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">string</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Proxy</maml:name>
+     <maml:description>
+      <maml:para>Specifies the webProxy object.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">WebProxy</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Force</maml:name>
+     <maml:description>
+      <maml:para>Force Operation. There will be no prompts for confirmation.</maml:para>
+     </maml:description>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>Credential</maml:name>
+    <maml:description>
+     <maml:para>Specifies Cisco.com credential.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">PSCredential</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>HardwareProfile</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile object to be removed.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">CiscoHardwareProfile</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Id</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile Id to be removed.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Name</maml:name>
+    <maml:description>
+     <maml:para>Specifies hardware profile name to be removed.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">string</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Proxy</maml:name>
+    <maml:description>
+     <maml:para>Specifies the webProxy object.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">WebProxy</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Force</maml:name>
+    <maml:description>
+     <maml:para>Force Operation. There will be no prompts for confirmation.</maml:para>
+    </maml:description>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+ <command:command xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:maml="http://schemas.microsoft.com/maml/2004/10">
+  <command:details>
+   <command:name>Set-UcsPowerToolConfiguration</command:name>
+   <maml:description>
+    <maml:para>Sets Object of type PowerToolConfiguration.</maml:para>
+   </maml:description>
+   <maml:copyright>
+    <maml:para>
+     Set
+     UcsPowerToolConfiguration
+    </maml:para>
+   </maml:copyright>
+   <maml:verb/>
+   <maml:noun/>
+  </command:details>
+  <maml:description>
+   <maml:para>Sets Object of type PowerToolConfiguration.</maml:para>
+  </maml:description>
+  <command:syntax>
+   <command:syntaxItem>
+    <maml:name>Set-UcsPowerToolConfiguration</maml:name>
+    <command:parameter>
+     <maml:name>SupportMultipleDefaultUcs</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">bool</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>InvalidCertificateAction</maml:name>
+     <maml:description>
+      <maml:para>TBD.</maml:para>
+     </maml:description>
+     <command:parameterValue required="true">InvalidCertificateHandling</command:parameterValue>
+    </command:parameter>
+    <command:parameter>
+     <maml:name>Force</maml:name>
+     <maml:description>
+      <maml:para>Force Operation. There will be no prompts for confirmation.</maml:para>
+     </maml:description>
+    </command:parameter>
+   </command:syntaxItem>
+  </command:syntax>
+  <command:parameters>
+   <command:parameter required="true">
+    <maml:name>SupportMultipleDefaultUcs</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">bool</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>InvalidCertificateAction</maml:name>
+    <maml:description>
+     <maml:para>TBD.</maml:para>
+    </maml:description>
+    <command:parameterValue required="true">InvalidCertificateHandling</command:parameterValue>
+   </command:parameter>
+   <command:parameter required="true">
+    <maml:name>Force</maml:name>
+    <maml:description>
+     <maml:para>Force Operation. There will be no prompts for confirmation.</maml:para>
+    </maml:description>
+   </command:parameter>
+  </command:parameters>
+ </command:command>
+</helpItems>
+

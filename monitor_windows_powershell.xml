@@ -1,0 +1,20 @@
+<monitor>
+    <name>AppDynamics UCS Monitoring Extension</name>
+       <type>managed</type>
+        <enabled>true</enabled>
+        <description>UCS Monitor</description>
+        <monitor-configuration></monitor-configuration>
+        <monitor-run-task>
+        <execution-style>periodic</execution-style> 
+         <execution-frequency-in-seconds>120</execution-frequency-in-seconds> 
+         <execution-timeout-in-secs>600</execution-timeout-in-secs>
+           <name>AppDynamicsUCSMonitor</name>
+           <type>executable</type>
+           <task-arguments>
+          </task-arguments>
+            <executable-task>
+                <type>file</type>
+                 <file os-type="windows">run.bat</file>
+           </executable-task>
+         </monitor-run-task>
+</monitor>

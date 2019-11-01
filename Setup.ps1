@@ -1,7 +1,9 @@
 #Set-ExecutionPolicy RemoteSigned 
 $CompleteSetupIndicator = ".\appd.setup.complete.indicator.txt"
 
-if((test-path $CompleteSetupIndicator)) {
+$LoadUCSPSCoreModules = ".\PSCoreModules\LoadModule.ps1"
+
+if(test-path $CompleteSetupIndicator) {
   Write-Host "The Setup has been executed already. `n Delete $CompleteSetupIndicator if you want to re-run the setup"
   break
 }
@@ -70,6 +72,52 @@ $X_Events_API_Key = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "X
 
 Write-Host = "Encryption Key read from JSON is $UCSPasswordEncyptionKey"
 
+$edition = $PSVersionTable.PSEdition
+
+switch ($edition)
+{
+    Core
+    {
+     Write-Host = "Found Powershell Core " -ForegroundColor Green
+     Write-Host = "This configuration will guide you on how to install the AppDynamics UCS Monitoring extension on Powershell Core" -ForegroundColor Green
+     $LoadUCSPSCoreModules
+        
+    }
+    Desktop
+    {
+     # Install-Module -Name Cisco.UCSManager
+     Write-Host = "Found Windows Powershell "
+     Write-Host = "Checking if Cisco.UCSManager Module is installed "
+     
+    if (-not(Get-InstalledModule Cisco.UCSManager -ErrorAction silentlycontinue)){
+    Write-Host = "Cisco.UCSManager module is not installed. Installing it now..."
+   # Set-PSRepository PSGallery -InstallationPolicy Trusted
+    Install-Module -Name Cisco.UCSManager -Confirm:$False -Force #Powershell will prompt for user acceptance without the -Force flag
+    
+    Write-Host "Module should now be installed.... wait while we fetch details "
+    Get-InstalledModule Cisco.UCSManager 
+
+    Write-Host "Importing UCSManager module "
+    Import-Module Cisco.UCSManager -Force
+
+}else{
+
+  Get-InstalledModule Cisco.UCSManager  
+  Write-Host "Cisco.UCSManager module found.. skipping"
+
+  Write-Host "Importing UCSManager module "
+  Import-Module Cisco.UCSManager -Force
+}
+   
+    }
+    default { 
+
+        Write-Host "Unsuported Powershell Edit, the script only supports Windows and Core Powershell"
+
+     }
+   
+}
+
 Write-Host = "Checking if ServiceNow Module is installed "
 If(-not(Get-InstalledModule ServiceNow -ErrorAction silentlycontinue)){
     Write-Host = "SerivceNow module is not installed. Installing it now..."
@@ -82,26 +130,12 @@ If(-not(Get-InstalledModule ServiceNow -ErrorAction silentlycontinue)){
 }else{
   Get-InstalledModule ServiceNow 
   Write-Host "ServiceNow module found.. skipping "
-}
 
-# Install-Module -Name Cisco.UCSManager
-Write-Host = "Checking if Cisco.UCSManager Module is installed "
-If(-not(Get-InstalledModule Cisco.UCSManager -ErrorAction silentlycontinue)){
-    Write-Host = "Cisco.UCSManager module is not installed. Installing it now..."
-   # Set-PSRepository PSGallery -InstallationPolicy Trusted
-    Install-Module -Name Cisco.UCSManager -Confirm:$False -Force #Powershell will prompt for user acceptance without the -Force flag
-    
-    Write-Host "Module should now be installed.... wait while we fetch details "
-    Get-InstalledModule Cisco.UCSManager 
-}else{
-
- Get-InstalledModule ServiceNow 
-  Write-Host "Cisco.UCSManager module found.. skipping"
 }
 
 function AcquireUCSSession{
     Write-Host "########### Step 1. Connecting to UCS on $UCSURL. You will be prompted for creds" -ForegroundColor  Yellow
-    Import-Module Cisco.UCSManager -Force
+   
     Connect-Ucs $UCSURL
 
     if ($DefaultUcs -eq $null) {
@@ -118,8 +152,8 @@ function AcquireUCSSession{
      Disconnect-Ucs
 }
 
-if((test-path $UCSEncryptedPasswordFile)) {
-    ProgressBar
+if(test-path $UCSEncryptedPasswordFile) {
+    #ProgressBar
     Write-Host "It looks like you already have a UCS encrypted passsword at $UCSEncryptedPasswordFile " -ForegroundColor Yellow
     $response = Read-Host -Prompt "Do you want to overwrite $UCSEncryptedPasswordFile? Y/N" 
     Write-Host "You reponse is $response" -ForegroundColor Green
@@ -176,7 +210,6 @@ $GetParams = @{
 
 Write-Host "#############Setting up fault Schema#############"
 ProgressBar
-Start-Sleep $sleeptime
 $fresp = Invoke-RestMethod @GetParams -Uri $faults_schema_endpoint -ErrorAction Continue
 $ftype = $fresp.eventType 
 if(![string]::IsNullOrEmpty($ftype) -and ($ftype -match "$UCS_Faults_Schema")) { 

@@ -1,7 +1,7 @@
 ############## Logging initializations: change log dir as you deem fit ##############
 $CompleteSetupIndicator = ".\appd.setup.complete.indicator.txt"
 if(!(test-path $CompleteSetupIndicator)) {
-  Write-Host "You must complete the setup before you continue" -ForegroundColor RED
+  Write-Host "You must complete the setup before you continue. Please run the Setup.ps1 script" -ForegroundColor RED
   break
 }
 
@@ -34,7 +34,7 @@ $PSUStatsJSON = ".\PSUStats.json"
 $ServerTempJSON = ".\ServerTempStats.json"
 
 #43800 
-$queryInterVal = 2 #minimum of 1 minute. Ideal 2 minutes. 
+$queryInterVal = 100 #minimum of 1 minute. Ideal 5 minutes. 
 
 $dateTime = Get-Date
 $timeNow = $dateTime.ToString("yyyy/MM/dd HH:mm") 
@@ -45,6 +45,7 @@ $confFileContent = (Get-Content $confFile -Raw) | ConvertFrom-Json
 
 $UCSPasswordEncyptionKey = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "UCSPasswordEncyptionKey" }`
                                                         | Select-Object -ExpandProperty Value
+
 $tier_id = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "tierID" } `
                                         | Select-Object -ExpandProperty Value
 if([string]::IsNullOrEmpty($tier_id)) {
@@ -57,14 +58,32 @@ $failed = "value=1"
 $success = "value=0"
 
 ############## Connect to UCS ##############
-Import-Module Cisco.UCSManager
+
+function DynamicModuleImporter {
+$edition = $PSVersionTable.PSEdition
+switch ($edition)
+{
+    Core
+    {
+     Write-Host = "Importing Powershell Core " -ForegroundColor Yellow
+     . .\PSCoreModules\LoadModule.ps1
+    }
+    Desktop
+    {
+      Write-Host = "Importing Powershell Windows " -ForegroundColor Yellow
+      Import-Module Cisco.UCSManager
+    }
+  }
+}
+
+
+DynamicModuleImporter
 
 Connect-Ucs -Path $UCSEncryptedPasswordFile -Key $(ConvertTo-SecureString -Force -AsPlainText "$UCSPasswordEncyptionKey") 
 
 #check connnection 
-if ($DefaultUcs -eq $null) {
-      
-      $msg = "Error connecting to UCS. Please ensure you have created the encrypted password your have connectivity to UCS  and your Key is correct"
+if ($DefaultUcs -eq $null) { 
+     $msg = "Error connecting to UCS. Please ensure you have created the encrypted password, you have connectivity to UCS and your Key is correct"
       Write-Host $msg -ForegroundColor RED
       Write-Log FATAL  $msg $LogPath  
       Write-Host "$metric_prefix|UCS|Connectivity,$failed"
