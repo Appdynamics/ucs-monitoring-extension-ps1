@@ -61,14 +61,13 @@ The following requirments must be met:
    Stats and Chassis temperature.
    
  - Installs ServiceNow and UCS PowerShell module from Microsoft   
-   PSGallary. If your server is behind a firewall, you&#39;d need to   
-   manually download and install the PowerShell modules – refer to the  
+   PSGallary. If your server is behind a firewall and it is blocked from accessing https://www.powershellgallery.com, you&#39;d need to manually download and install the PowerShell modules – refer to the  
    Setup.ps1 script for the module names.
  - Creates a file named _appd.setup.complete.indicator.txt_ - to   
    indicate that the setup has been successfully created, if and only if
    the setup was successful.
- - Login to AppDynamics Controller and navigate to Analytics – Searches – Add  - &#39;Drag and Drop Search&#39;.  Click on the Schema drop-down and ensure all 3 UCS schemas are present.
- - Run FaultFinder.ps1 script manually and ensure there are no errors
- - Restart Machine Agent
- - Repeat step 4 after 4 minutes, but this time select the PSU schema. You&#39;re expected to see some data.
+4. Login to AppDynamics Controller and navigate to Analytics – Searches – Add  - &#39;Drag and Drop Search&#39;. Click on the Schema drop-down and ensure all 3 UCS schemas are present.
+5. Run FaultFinder.ps1 script manually and ensure there are no errors
+6. Restart Machine Agent
+7. Repeat step 4 after 4 minutes, but this time select the PSU schema. You&#39;re expected to see some data.
 
