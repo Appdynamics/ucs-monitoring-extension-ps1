@@ -49,9 +49,7 @@ The following requirments must be met:
 | EnableServiceNow  | Set to &#39;yes&#39; or &#39;no&#39;. Other ServiceNOW properties are required if set to yes, else, ignore them. |
 | tierID  | This is required to monitor the health of the UCS monitoring extension i.e connectivity to AppDynamics, UCS and SNOW.Follow the instructions in this [doc](https://community.appdynamics.com/t5/Knowledge-Base/How-do-I-troubleshoot-missing-custom-metrics-or-extensions/ta-p/28695#Configuring%20an%20Extension) to acquire the component (or tier) ID. |
 
-2. Launch PowerShell as an Administrator and run the ./Setup.ps1 script
-
-The Setup.ps1 script performs a one-time configuration of the following items:
+3. Launch PowerShell as an Administrator and run the ./Setup.ps1 script. The Setup.ps1 script performs a one-time   configuration of the following items:
 
  - Acquires a UCS session and exports the session details into an
    encrypted file in the SecureFolder.
