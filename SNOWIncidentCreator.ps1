@@ -51,7 +51,7 @@ if ([string]::IsNullOrEmpty($password)) {
   $firstSeverity = $faults | Select-Object -First 1 | Select-Object Severity | Select-Object -ExpandProperty Severity
   $firstSeverity = $firstSeverity.Trim()
 
-  $firstType = $faults | Select-Object -First 1 | Select-Object Get-Content | Select-Object -ExpandProperty Get-Content
+  $firstType = $faults | Select-Object -First 1 | Select-Object Type | Select-Object -ExpandProperty Type
   $firstType = $firstType.Trim()
 
   $firstDn = $faults | Select-Object -First 1 | Select-Object Dn | Select-Object -ExpandProperty Dn
@@ -72,7 +72,7 @@ if ([string]::IsNullOrEmpty($password)) {
   #$Descfaults = $faults | Select-Object -First 5 | Select-Object Created, Severity, Cause, Descr, Dn | Sort-Object Severity | Format-Table -View Severity | Out-File .\tf.txt
 
 
-  $descr = $faults | Select-Object | ConvertTo-Html -Property Created,LastTransition,Severity,Cause,Occcur,Rn,Get-Content,Tags,Dn,Descr -Fragment
+  $descr = $faults | Select-Object | ConvertTo-Html -Property Created,LastTransition,Severity,Cause,Occcur,Rn,Type,Tags,Dn,Descr -Fragment
 
   $totalCritical = ($faults | Where-Object { $_.Severity -eq "critical" } | Measure-Object).Count
 
@@ -109,8 +109,11 @@ if ([string]::IsNullOrEmpty($password)) {
   }
 
   $snow = New-ServiceNowIncident @IncidentParams
-  Write-Log INFO "Incident number $snow.number " $LogPath
-  Write-Log INFO $snow $LogPath
-  Write-Host "Incident number $snow.number"
+  $icnum = $snow.number
+  Write-Log INFO "Incident number $icnum " $LogPath
+  Write-Log INFO "summary=>  $summary " $LogPath
+  Write-Log INFO "Assignment Group=> $SerivceNowAssignmentGroup " $LogPath
+  
+  Write-Host "Incident number- $icnum"
 
 }

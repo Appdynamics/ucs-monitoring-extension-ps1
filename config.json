@@ -1,69 +1,56 @@
 ﻿{
-    "ConfigItems": 
-        [
-          
-             {
-                "Name": "UCSPasswordEncyptionKey", 
-                "Value": "INSERT ANY STRING HERE"   
-                
-            }, 
-
-            {
-                "Name": "EnableServiceNow", 
-                "Value": "yes"   
-            }, 
-
-            {
-                "Name": "ServiceNowURL", 
-                "Value": "<customer>.service-now.com"   
-            }, 
-
-            {
-                "Name": "SerivceNowAssignmentGroup", 
-                "Value": "Global Hosting Services"   
-            }, 
-
-            {
-                "Name": "tierID",
-                "Value": "XXXXXX"
-            },
-
-            {
-                "Name": "UCSURL", 
-                "Value": "IPAddress OR DomainName without HTTP(S)"   
-            },
-
-             {
-                "Name": "analyticsEndpoint", 
-                "Value": "https://fra-ana-api.saas.appdynamics.com"   
-            },
-
-            {
-                "Name": "X-Events-API-AccountName", 
-                "Value": "GlobalAccountName"   
-            },
-
-            {
-                "Name": "X-Events-API-Key", 
-                "Value": "AnalyticsKEY"   
-            },
-
-
-            {
-                "Name": "UCS-Faults-Schema", 
-                "Value": "UCS_Faults"   
-            },
-            
-            {
-                "Name": "PSU-Stats-Schema", 
-                "Value": "UCS_PSU_Stats"   
-            },
-
-            {
-                "Name": "UCS-Server-Temperature-Schema", 
-                "Value": "UCS_Server_Temperature"   
-            }
-
-           
-        ]
-    }
+    "ConfigItems": [
+      {
+        "Name": "UCSPasswordEncyptionKey",
+        "Value": "INSERT ANY STRING HERE"
+      },
+      {
+        "Name": "EnableServiceNow",
+        "Value": "yes"
+      },
+      {
+        "Name": "ServiceNowURL",
+        "Value": "<customer>.service-now.com"
+      },
+      {
+        "Name": "SerivceNowUsername", 
+        "Value": "appDservice"   
+     },
+      {
+        "Name": "SerivceNowAssignmentGroup",
+        "Value": "Global Hosting Services"
+      },
+      {
+        "Name": "tierID",
+        "Value": "XXXXXX"
+      },
+      {
+        "Name": "UCSURL",
+        "Value": "IPAddress OR DomainName without HTTP(S)"
+      },
+      {
+        "Name": "analyticsEndpoint",
+        "Value": "https://fra-ana-api.saas.appdynamics.com"
+      },
+      {
+        "Name": "X-Events-API-AccountName",
+        "Value": "GlobalAccountName"
+      },
+      {
+        "Name": "X-Events-API-Key",
+        "Value": "AnalyticsKEY"
+      },
+      {
+        "Name": "UCS-Faults-Schema",
+        "Value": "UCS_Faults"
+      },
+      {
+        "Name": "PSU-Stats-Schema",
+        "Value": "UCS_PSU_Stats"
+      },
+      {
+        "Name": "UCS-Server-Temperature-Schema",
+        "Value": "UCS_Server_Temperature"
+      }
+    ]
+  }

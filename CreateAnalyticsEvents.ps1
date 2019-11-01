@@ -10,9 +10,6 @@ $msg = "Sending analytics metrics to: $url"
 Write-Host $msg
 Write-Log DEBUG $msg $LogPath
 
-
-#Write-Host "$requestBody"
-
 $header = @{
   "Accept" = 'application/json'
   "Content-Type" = 'application/vnd.appd.events+json;v=2'

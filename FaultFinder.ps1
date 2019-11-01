@@ -99,7 +99,7 @@ Write-Log DEBUG "Filter String $filterString" $LogPath
 $faults = Get-UcsFault -Filter $filterString `
    | Where-Object { $_.Severity -match "^(major|minor|critical|warning)$" -and $_.Ack -ne "yes" } `
    | Select-Object Ack,Cause,Code,Created,Descr,Severity,PrevSeverity,OrigSeverity,`
-   HighestSeverity,LastTransition,Occur,Rule,Tags,Get-Content,Ucs,Rn,Dn,Status
+   HighestSeverity,LastTransition,Occur,Rule,Tags,Type,Ucs,Rn,Dn,Status
 
 ############## Power Supply Unit Stats  ##############
 $PSUStats = Get-UcsPsuStats | Sort-Object -Property Dn `
@@ -147,6 +147,10 @@ $PSU_Stats_Schema = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "P
 $Server_Temperature_Schema = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "UCS-Server-Temperature-Schema" } `
    | Select-Object -ExpandProperty Value
 
+$SerivceNowAssignmentGroup = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "SerivceNowAssignmentGroup" } `
+   | Select-Object -ExpandProperty Value
+
+   
 ############## Begin Data Normalisation ##############
 $totalFaults = 0
 
