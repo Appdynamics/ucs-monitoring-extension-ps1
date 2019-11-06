@@ -19,9 +19,9 @@ In summary, as this monitoring extension leverages the power of the AppDynamics 
 > Severity = &quot;critical&quot; AND Type in (&quot;network&quot;,
 > &quot;server&quot;) SINCE 7 days
 
-In the same vein, the ADQL below uses regular expression to calculate and return the average Rear Temperature of the first blade server in the first chassis. 
+In the same vein, the ADQL below uses regular expression to calculate and return the average Inlet Air Temperature of the first blade server in the first chassis. 
 
-> SELECT avg(toFloat(FmTempSenIo)) FROM ucs\_server\_temperature WHERE
+> SELECT avg(toFloat(FmTempSenIo)) AS InletAirTemp FROM ucs\_server\_temperature WHERE
 > Dn REGEXP &quot;sys/chassis-1/blade-1.\*&quot;
 
 Better still, you can save the ADQL as a metric so it can be automatically executed every minute to plot a time-series graph.
