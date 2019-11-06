@@ -106,7 +106,7 @@ The table below contains a description of some of the configuration properties.
  
 </p>
 
-<p align="justify"><i><b>If you are interested in setting up a UCS dashboard similar to the one below, click <a href="https://appdynamics.github.io/ucs-monitoring-extension-docs/ucsdashboard.html">here</a> to continue reading </b></i></p>
+<p align="justify"><i><b>If you are interested in setting up a UCS dashboard similar to the one below, click <a href="https://appdynamics.github.io/ucs-monitoring-extension-ps1/ucsdashboard.html">here</a> to continue reading </b></i></p>
 <p align="middle"><i> (Pro-tip: Right click the dashboard and select open in new tab)</i>  </p>
 
 <img width="1584" alt="Screenshot 2019-11-01 at 20 36 37" src="https://user-images.githubusercontent.com/2548160/68076387-c520b200-fdab-11e9-90bd-d40fd331f8eb.png">
