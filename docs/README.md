@@ -107,9 +107,6 @@ The table below contains a description of some of the configuration properties.
 
  *The SNOW incident number is logged in the UCSMonitor log file in machine agent's log directory*
 
-# Troubleshooting 
-
-
 <p align="middle" style="color:#4E3EB1;"> 
 <strong>
  
