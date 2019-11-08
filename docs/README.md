@@ -59,7 +59,7 @@ The table below contains a description of some of the configuration properties.
 | UCSURL  | Specify the IP Address or domain name of UCS manager. Please do not include the http/s bit |
 | analyticsEndpoint  | This is the analytics endpoint of your controller. This differs depending on the location of your controller. Please refer to this [doc](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges). |
 | X-Events-API-AccountName  | You can get the global account name to use from the [License page](https://docs.appdynamics.com/display/latest/License+Management)  |
-| X-Events-API-Key  | Create the analytics API Key by following the instruction in this[doc](https://docs.appdynamics.com/display/latest/Managing+API+Keys).  Grant Manage, Query and Publish permissions to Custom Analytics Events. |
+| X-Events-API-Key  | Create the analytics API Key by following the instruction in this [doc](https://docs.appdynamics.com/display/latest/Managing+API+Keys).  Grant Manage, Query and Publish permissions to Custom Analytics Events. |
 | EnableServiceNow  | Set to &#39;yes&#39; or &#39;no&#39;. Other ServiceNOW properties are required if set to yes, else, ignore them. |
 | tierID  | This is required to monitor the health of the UCS monitoring extension i.e connectivity to AppDynamics, UCS and SNOW.Follow the instructions in this [doc](https://community.appdynamics.com/t5/Knowledge-Base/How-do-I-troubleshoot-missing-custom-metrics-or-extensions/ta-p/28695#Configuring%20an%20Extension) to acquire the component (or tier) ID. |
 
@@ -105,7 +105,7 @@ The table below contains a description of some of the configuration properties.
  |:--:| 
 | *Fig. 1.4 ServiceNow Incident* |
 
- *The SNOW incident number is logged in the UCSMonitor log file in machine agent's log directory*
+ *The SNOW incident number is logged in the UCSMonitor log file in the machine agent's log directory*
 
 <p align="middle" style="color:#4E3EB1;"> 
 <strong>
