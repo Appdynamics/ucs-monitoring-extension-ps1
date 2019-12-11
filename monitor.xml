@@ -15,6 +15,7 @@
             <executable-task>
                 <type>file</type>
                  <file os-type="windows">run.bat</file>
+                 <file os-type="windows">run.sh</file>
            </executable-task>
          </monitor-run-task>
 </monitor>
