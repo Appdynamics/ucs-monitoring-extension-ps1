@@ -1,9 +1,0 @@
-theme: jekyll-theme-cayman
-title: Cisco UCS Monitoring Extension 
-description: AppDynamics Monitoring Solution for Cisco UCS
-show_downloads: true
-
-github:
-  mac_url: https://github.com/Appdynamics/ucs-monitoring-extension-ps1/releases/tag/Linux_v1.0
-  linux_url: https://github.com/Appdynamics/ucs-monitoring-extension-ps1/releases/tag/Linux_v1.0
-  windows_url: https://github.com/Appdynamics/ucs-monitoring-extension-ps1/releases/tag/windows_v1.0
