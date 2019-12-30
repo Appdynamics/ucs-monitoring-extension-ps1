@@ -2,7 +2,7 @@
 $CompleteSetupIndicator = ".\appd.setup.complete.indicator.txt"
 
 if (Test-Path $CompleteSetupIndicator) {
-  Write-Host "The Setup has been executed already. `n Delete $CompleteSetupIndicator if you want to re-run the setup"
+  Write-Host "The Setup has been executed. `n Delete $CompleteSetupIndicator if you want to re-run the setup process"
   break
 }
 
