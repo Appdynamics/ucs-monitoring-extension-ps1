@@ -14,7 +14,7 @@
           </task-arguments>
             <executable-task>
                 <type>file</type>
-                 <file os-type="windows">run_core.bat</file>
+                 <file os-type="windows">run-winpscore.bat</file>
            </executable-task>
          </monitor-run-task>
 </monitor>
