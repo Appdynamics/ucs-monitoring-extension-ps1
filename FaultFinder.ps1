@@ -5,16 +5,13 @@ $ilogFile = "UCSMonitor.log"
 $LogPath = $LogDir + '\' + $iLogFile
 
 #Load Logger Function - relative path
-& "$PSScriptRoot\Logger.ps1"
+. ".\Logger.ps1"
 
 #Checking for existence of logfolders and files if not create them.
 if (!(Test-Path $LogDir)) {
   New-Item -Path $LogDir -ItemType directory
   New-Item -Path $LogDir -Name $iLogFile -ItemType File
-}
-else {
-  Write-Log INFO "$LogDir exists" $LogPath
-
+  Write-Host INFO "Created $LogDir" $LogPath
 }
 
 ############## Check if setup has been done ##############
