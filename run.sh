@@ -1,2 +1,1 @@
-
-pwsh -ExecutionPolicy remotesigned -File FaultFinder.ps1
+pwsh FaultFinder.ps1

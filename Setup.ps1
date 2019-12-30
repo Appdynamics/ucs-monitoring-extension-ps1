@@ -1,17 +1,13 @@
 #Set-ExecutionPolicy RemoteSigned 
 $CompleteSetupIndicator = ".\appd.setup.complete.indicator.txt"
 
-$LoadUCSPSCoreModules = ".\PSCoreModules\LoadModule.ps1"
-
 if (Test-Path $CompleteSetupIndicator) {
   Write-Host "The Setup has been executed already. `n Delete $CompleteSetupIndicator if you want to re-run the setup"
   break
 }
 
 $UCSEncryptedPasswordFile = ".\SecureFolder\UCSEncryptedPassword.xml"
-
 $SNOWEncryptedPasswordFile = ".\SecureFolder\SNOWEnryptedPassword.txt"
-
 $PSUJsonTemplate = ".\jsonTemplates\CreatPSUStatsSchema.json"
 $TemperatureJsonTemplate = ".\jsonTemplates\CreateServerTempSchema.json"
 $FaultJsonTemplate = ".\jsonTemplates\CreateFaultsSchema.json"
@@ -79,8 +75,7 @@ switch ($edition)
   Core
   {
     Write-Host = "Found Powershell Core " -ForegroundColor Green
-    Write-Host = "This configuration will guide you on how to install the AppDynamics UCS Monitoring extension on Powershell Core" -ForegroundColor Green
-    $LoadUCSPSCoreModules
+    & "$PSScriptRoot\PSCoreModules\LoadModule.ps1"
 
   }
   Desktop
@@ -111,8 +106,7 @@ switch ($edition)
 
   }
   default {
-
-    Write-Host "Unsuported Powershell Edit, the script only supports Windows and Core Powershell"
+    Write-Host "Unsuported Powershell Edition ($edition), the script only supports Powershell on Windows and Powershell Core"
 
   }
 
