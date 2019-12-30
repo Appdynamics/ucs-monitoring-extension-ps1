@@ -46,9 +46,9 @@ Please do not proceed with the extension installation if any of the aforemention
 
 # Installation
 
-1) Download and unzip the UCSMonitoringExtension.zip to the <MachineAgent_Dir>/monitors directory
+1) Download and unzip the file to the {MachineAgent_Dir}/monitors directory. If you are using Windows OS, you may need to <a href="https://blogs.msdn.microsoft.com/delay/p/unblockingdownloadedfile/" target="_blank">unblock</a> the zip file before unzipping it</p>
 
-2) Edit only the Value property in the `config.json` file located at <MachineAgent_Dir>/monitors/UCSMonitoringExtension
+2) Edit only the Value property in the `config.json` file located at {MachineAgent_Dir}/monitors/ucs-monitoring-extension
 
 The table below contains a description of some of the configuration properties.
 
