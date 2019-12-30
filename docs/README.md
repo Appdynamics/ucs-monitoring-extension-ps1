@@ -11,7 +11,7 @@ This AppDynamics Cisco UCS monitoring extension covers UCS health monitoring fro
 
 1. **Monitoring UCS Faults** - The extension periodically polls the UCS fault engine and aggregates UCS faults in AppDynamics. These faults are further categorised into critical UCS functional areas such as Disk Health, Fan Module health, Fabric Interconnect health, Blade server health, Rack Unit health, Chassis PSU health, vNICS health etc. All faults that are visible to the UCS manager are monitored by this extension irrespective of the affected component within UCS. Only faults that have not been acknowledged in UCS are monitored. In addition, the extension reports on only Critical, Major, Minor and Warning faults. In other words, Info, Condition and Cleared Severities are all ignored and not monitored by AppDynamics.
 
-1. **ServiceNow Integration** – The UCS monitoring extension has an optional ServiceNow integration built-in; if enabled, the extension creates a ServiceNow incident with a detailed description of faults. The ServiceNow incident is auto-assigned to a pre-defined group. By default, it creates a P3 incident for Critical faults.
+**ServiceNow Integration** – The UCS monitoring extension has an optional ServiceNow integration built-in; if enabled, the extension creates a ServiceNow incident with a detailed description of faults. The ServiceNow incident is auto-assigned to a pre-defined group. By default, it creates a P3 incident for Critical faults.
 
 In summary, as this monitoring extension leverages the power of the AppDynamics BiQ platform, Cisco UCS customers can now slice and dice UCS faults in numerous dimensions for reporting and trend analysis purposes. For example, this query returns all UCS _critical_  faults that were caused by _power-supply_ failure, and had a direct (or a knock-on) effect on a _server_  or a _network components_ in the _last 7_ days.
 
@@ -45,6 +45,8 @@ Please do not proceed with the extension installation if any of the aforemention
 
 
 # Installation
+<img align="right" width="70" height="60" src="https://user-images.githubusercontent.com/2548160/71588011-d53cdf80-2b17-11ea-80a4-4ffa63b1e45e.png"> <i>In addition to the steps below, please refer to this <a href="https://github.com/Appdynamics/ucs-monitoring-extension-docker" target="_blank">project</a> if you would like to run the Cisco UCS extension in a docker container </i>
+<br><br>
 
 1) Download and unzip the file to the {MachineAgent_Dir}/monitors directory. If you are using Windows OS, you may need to <a href="https://blogs.msdn.microsoft.com/delay/p/unblockingdownloadedfile/" target="_blank">unblock</a> the zip file before unzipping it</p>
 
@@ -106,10 +108,9 @@ The table below contains a description of some of the configuration properties.
 | *Fig. 1.4 ServiceNow Incident* |
 
  *The SNOW incident number is logged in the UCSMonitor log file in the machine agent's log directory*
-
+ 
 <p align="middle" style="color:#4E3EB1;"> 
 <strong>
- 
  -------- End of UCS Monitoring Extension Setup -------- 
  </strong>
  
