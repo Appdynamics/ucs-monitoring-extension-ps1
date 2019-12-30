@@ -1,18 +1,11 @@
-############## Logging initializations: change log dir as you deem fit ##############
-$CompleteSetupIndicator = ".\appd.setup.complete.indicator.txt"
-if (!(Test-Path $CompleteSetupIndicator)) {
-  Write-Host "You must complete the setup before you continue. Please run the Setup.ps1 script" -ForegroundColor RED
-  break
-}
-
+############## Logging initializations ##############
 $LogDir = "..\..\logs"
 $ilogFile = "UCSMonitor.log"
 
 $LogPath = $LogDir + '\' + $iLogFile
 
 #Load Logger Function - relative path
-
-. ".\Logger.ps1"
+& "$PSScriptRoot\Logger.ps1"
 
 #Checking for existence of logfolders and files if not create them.
 if (!(Test-Path $LogDir)) {
@@ -24,6 +17,14 @@ else {
 
 }
 
+############## Check if setup has been done ##############
+$CompleteSetupIndicator = ".\appd.setup.complete.indicator.txt"
+if (!(Test-Path $CompleteSetupIndicator)) {
+  $msg =  "You must complete the setup before you continue. Please run the Setup.ps1 script"
+  Write-Log FATAL $msg $LogPath
+  Write-Host $msg  -ForegroundColor RED
+  break
+}
 
 ##############END of Log Init######################
 $UCSEncryptedPasswordFile = ".\SecureFolder\UCSEncryptedPassword.xml"
@@ -33,8 +34,7 @@ $FaultJson = ".\fault.json"
 $PSUStatsJSON = ".\PSUStats.json"
 $ServerTempJSON = ".\ServerTempStats.json"
 
-#43800 
-$queryInterVal = 100 #minimum of 1 minute. Ideal 5 minutes. 
+$queryInterVal = 1 #minimum of 1 minute. Ideal 5 minutes. 
 
 $dateTime = Get-Date
 $timeNow = $dateTime.ToString("yyyy/MM/dd HH:mm")
@@ -61,28 +61,30 @@ $success = "value=0"
 
 function DynamicModuleImporter {
   $edition = $PSVersionTable.PSEdition
+  $msg =  "Powershell edition is $edition"
+  Write-Log DEBUG $msg $LogPath
+  Write-Host $msg
   switch ($edition)
   {
     Core
     {
-      Write-Host = "Importing Powershell Core " -ForegroundColor Yellow
-      . .\PSCoreModules\LoadModule.ps1
+      Write-Host = "Importing UCS Powershell Core Modules" -ForegroundColor Yellow
+      & "$PSScriptRoot\PSCoreModules\LoadModule.ps1"
     }
     Desktop
     {
-      Write-Host = "Importing Powershell Windows " -ForegroundColor Yellow
+      Write-Host = "Importing UCS Windows Desktop Powershell Modules " -ForegroundColor Yellow
       Import-Module Cisco.UCSManager
     }
   }
 }
-
 
 DynamicModuleImporter
 
 Connect-Ucs -Path $UCSEncryptedPasswordFile -Key $(ConvertTo-SecureString -Force -AsPlainText "$UCSPasswordEncyptionKey")
 
 #check connnection 
-if ($DefaultUcs -eq $null) {
+if($DefaultUcs -eq $null) {
   $msg = "Error connecting to UCS. Please ensure you have created the encrypted password, you have connectivity to UCS and your Key is correct"
   Write-Host $msg -ForegroundColor RED
   Write-Log FATAL $msg $LogPath
@@ -182,7 +184,7 @@ if ($totalFaults -lt 1) {
 
   $faults = $faults | Sort-Object -Property @{ Expression = { $_.Severity }; Ascending = $true },LastTransition -Descending | ForEach-Object { $_.Tags = ($_.Tags -join ","); $_ }
 
-  #sort my last severit transition time then convert to json.  By default, Out-File overwrites existing files.
+  #sort by last severity transition time then convert to json.  By default, Out-File overwrites existing files.
   #$faults | Convertto-Json | Out-File $FaultJson
   #$FaultsRequestBody = Get-Content $FaultJson -Raw
 
@@ -190,7 +192,7 @@ if ($totalFaults -lt 1) {
   #Send Faults Analytics Events   
   & "$PSScriptRoot\CreateAnalyticsEvents.ps1" -requestBody $FaultsRequestBody -Schema $UCS_Faults_Schema
 
-  if ($EnableServiceNow -eq "yes") {
+  if($EnableServiceNow -eq "yes") {
     Write-Host ="Integration with ServiceNow is set to yes, creating incident...." -ForegroundColor Yellow
     #Create SNOW Ticket  
     & "$PSScriptRoot\SNOWIncidentCreator.ps1"
@@ -209,7 +211,6 @@ if (![string]::IsNullOrEmpty($PSUStats)) {
   Write-Host "Sending PSU data" -ForegroundColor Yellow
   #convert to JSON objects 
   #$PSUStats | Convertto-Json | Out-File $PSUStatsJSON
-
   $PSURequestBody = $PSUStats | ConvertTo-Json # Get-Content $PSUStatsJSON -Raw
   & "$PSScriptRoot\CreateAnalyticsEvents.ps1" -requestBody $PSURequestBody -Schema $PSU_Stats_Schema
 
