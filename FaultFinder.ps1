@@ -40,7 +40,7 @@ $timeAgo = $dateTime.Addminutes(- $queryInterVal).ToString("yyyy/MM/dd HH:mm")
 ##############Load Conf.json #####################
 $confFileContent = (Get-Content $confFile -Raw) | ConvertFrom-Json
 
-$UCSPasswordEncyptionKey = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "UCSPasswordEncyptionKey" } `
+$UCSPasswordEncryptionKey = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "UCSPasswordEncryptionKey" } `
    | Select-Object -ExpandProperty Value
 
 $tier_id = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "tierID" } `
@@ -78,7 +78,7 @@ function DynamicModuleImporter {
 
 DynamicModuleImporter
 
-Connect-Ucs -Path $UCSEncryptedPasswordFile -Key $(ConvertTo-SecureString -Force -AsPlainText "$UCSPasswordEncyptionKey")
+Connect-Ucs -Path $UCSEncryptedPasswordFile -Key $(ConvertTo-SecureString -Force -AsPlainText "$UCSPasswordEncryptionKey")
 
 #check connnection 
 if($DefaultUcs -eq $null) {
@@ -124,7 +124,7 @@ $ServiceNowURL = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "Serv
    | Select-Object -ExpandProperty Value
 
 
-$SerivceNowUsername = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "SerivceNowUsername" } `
+$ServiceNowUsername = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "ServiceNowUsername" } `
    | Select-Object -ExpandProperty Value
 
 $analyticsEndpoint = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "analyticsEndpoint" } `
@@ -146,7 +146,7 @@ $PSU_Stats_Schema = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "P
 $Server_Temperature_Schema = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "UCS-Server-Temperature-Schema" } `
    | Select-Object -ExpandProperty Value
 
-$SerivceNowAssignmentGroup = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "SerivceNowAssignmentGroup" } `
+$ServiceNowAssignmentGroup = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "ServiceNowAssignmentGroup" } `
    | Select-Object -ExpandProperty Value
 
    
@@ -199,7 +199,7 @@ if ($totalFaults -lt 1) {
 
 }
 
-Write-Host "PSU Stas" -ForegroundColor Yellow
+Write-Host "Processing PSU Stas" -ForegroundColor Yellow
 #Create SNOW Ticket  
 Write-Host $PSUStats | ConvertTo-Json
 
@@ -211,21 +211,29 @@ if (![string]::IsNullOrEmpty($PSUStats)) {
   $PSURequestBody = $PSUStats | ConvertTo-Json # Get-Content $PSUStatsJSON -Raw
   & "$PSScriptRoot\CreateAnalyticsEvents.ps1" -requestBody $PSURequestBody -Schema $PSU_Stats_Schema
 
+}else{
+  $msg = "No PSU stat data" 
+  Write-Host $msg -ForegroundColor Yellow
+  Write-Log INFO $msg $LogPath
 }
 
-Write-Host "ServerTemp Stas" -ForegroundColor Yellow
+Write-Host "Processing ServerTemp Stas" -ForegroundColor Yellow
 #Create SNOW Ticket  
 Write-Host $ServerTemp | ConvertTo-Json
 
 #send Server Temperature stats 
 if (![string]::IsNullOrEmpty($ServerTemp)) {
-  Write-Host "Sending Sever data" -ForegroundColor Yellow
+  Write-Host "Sending Server data found" -ForegroundColor Yellow
   #convert to JSON objects 
   #$ServerTemp | Convertto-Json #| Out-File $ServerTempJSON
 
   $STempRequestBody = $ServerTemp | ConvertTo-Json #Get-Content $ServerTempJSON -Raw
   & "$PSScriptRoot\CreateAnalyticsEvents.ps1" -requestBody $STempRequestBody -Schema $Server_Temperature_Schema
 
+}else{
+  $msg = "No Sever Stat data found" 
+  Write-Host $msg -ForegroundColor Yellow
+  Write-Log INFO $msg $LogPath
 }
 
 

@@ -1,7 +1,7 @@
 ﻿{
     "ConfigItems": [
       {
-        "Name": "UCSPasswordEncyptionKey",
+        "Name": "UCSPasswordEncryptionKey",
         "Value": "INSERT ANY STRING HERE"
       },
       {
@@ -13,11 +13,11 @@
         "Value": "<customer>.service-now.com"
       },
       {
-        "Name": "SerivceNowUsername", 
+        "Name": "ServiceNowUsername", 
         "Value": "appDservice"   
      },
       {
-        "Name": "SerivceNowAssignmentGroup",
+        "Name": "ServiceNowAssignmentGroup",
         "Value": "Global Hosting Services"
       },
       {

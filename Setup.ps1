@@ -23,13 +23,13 @@ if (!(Test-Path $confFile)) {
 
 $confFileContent = (Get-Content $confFile -Raw) | ConvertFrom-Json
 
-$UCSPasswordEncyptionKey = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "UCSPasswordEncyptionKey" } `
+$UCSPasswordEncryptionKey = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "UCSPasswordEncryptionKey" } `
    | Select-Object -ExpandProperty Value
 
 $UCSURL = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "UCSURL" } `
    | Select-Object -ExpandProperty Value
 
-$SerivceNowUsername = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "SerivceNowUsername" } `
+$ServiceNowUsername = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "ServiceNowUsername" } `
    | Select-Object -ExpandProperty Value
 
 $ServiceNowURL = $confFileContent.ConfigItems | Where-Object { $_.Name -eq "ServiceNowURL" } `
@@ -66,7 +66,7 @@ function ProgressBar {
   }
 }
 
-Write-Host = "Encryption Key read from JSON is $UCSPasswordEncyptionKey"
+Write-Host = "Encryption Key read from JSON is $UCSPasswordEncryptionKey"
 
 $edition = $PSVersionTable.PSEdition
 
@@ -139,7 +139,7 @@ function AcquireUCSSession {
 
   Write-Host "Connection to UCS is succesful. Dumping your encrypted Creds to $UCSEncryptedPasswordFile"
 
-  Export-UcsPSSession -LiteralPath $UCSEncryptedPasswordFile -Key $(ConvertTo-SecureString -Force -AsPlainText "$UCSPasswordEncyptionKey")
+  Export-UcsPSSession -LiteralPath $UCSEncryptedPasswordFile -Key $(ConvertTo-SecureString -Force -AsPlainText "$UCSPasswordEncryptionKey")
 
   Write-Host = "Disconnecting from UCS"
 
@@ -204,43 +204,56 @@ $GetParams = @{
 
 Write-Host "#############Setting up fault Schema#############"
 ProgressBar
+try{
 $fresp = Invoke-RestMethod @GetParams -Uri $faults_schema_endpoint -ErrorAction Continue
+}catch{}
 $ftype = $fresp.eventType
 if (![string]::IsNullOrEmpty($ftype) -and ($ftype -match "$UCS_Faults_Schema")) {
   $ftype
   Write-Host "$UCS_Faults_Schema already exist. Skipping" -ForegroundColor Yellow
 } else {
-  Write-Host "Creating $UCS_Faults_Schema Schema"
+  Write-Host ""
+  Write-Host "Creating $UCS_Faults_Schema Schema" -ForegroundColor Yellow
   Invoke-RestMethod @PostParams -Uri $faults_schema_endpoint -Body $faultsRequestBody -ErrorAction Stop
 }
 
+Start-Sleep $sleeptime
 
 Write-Host "#############Setting up Temperature Schema #############"
 ProgressBar
+try{
 $tresp = Invoke-RestMethod @GetParams -Uri $temperature_schema_endpoint -ErrorAction Continue
+}catch{}
 $ttype = $tresp.eventType
 if (![string]::IsNullOrEmpty($ttype) -and ($ttype -match "$Server_Temperature_Schema")) {
   $ttype
   Write-Host "$Server_Temperature_Schema already exist. Skipping" -ForegroundColor Yellow
 
 } else {
+  Write-Host ""
   Write-Host "Creating $Server_Temperature_Schema Schema" -ForegroundColor Yellow
 
   Invoke-RestMethod @PostParams -Uri $temperature_schema_endpoint -Body $temperatureRequestBody -ErrorAction Stop
 }
 
+Start-Sleep $sleeptime
 
 Write-Host "#############Setting up PSU Schema #############"
 ProgressBar
+try{
 $presp = Invoke-RestMethod @GetParams -Uri $psu_schema_endpoint -ErrorAction Continue
+}catch{}
 $ptype = $presp.eventType
 if (![string]::IsNullOrEmpty($ptype) -and ($ptype -match "$PSU_Stats_Schema")) {
   $ptype
   Write-Host "$PSU_Stats_Schema already exist. Skipping" . -ForegroundColor Yellow
 } else {
-  Write-Host "Creating $PSU_Stats_Schema Schema"
+  Write-Host ""
+  Write-Host "Creating $PSU_Stats_Schema Schema" -ForegroundColor Yellow
   Invoke-RestMethod @PostParams -Uri $psu_schema_endpoint -Body $psuRequestBody -ErrorAction Stop
 }
+
+Write-Host ""
 
 Write-Host "########### Step 3. You now need to encrypt your ServiceNow creds ###########"
 
@@ -257,10 +270,10 @@ function AcquireSNOWSession {
     break
   }
 
-  Write-Host "Testing connection to $ServiceNowURL with $SerivceNowUsername username "
+  Write-Host "Testing connection to $ServiceNowURL with $ServiceNowUsername username "
 
   $password = Get-Content $SNOWEncryptedPasswordFile | ConvertTo-SecureString -Key $key
-  $credential = New-Object System.Management.Automation.PsCredential ($SerivceNowUsername,$password)
+  $credential = New-Object System.Management.Automation.PsCredential ($ServiceNowUsername,$password)
 
   Import-Module ServiceNow -Force
   $connected = Set-ServiceNowAuth -url $ServiceNowURL -Credentials $credential
