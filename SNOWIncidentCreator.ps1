@@ -22,8 +22,8 @@ if ([string]::IsNullOrEmpty($password)) {
   Write-Log FATAL $msg $LogPath
 } else {
 
-  $credential = New-Object System.Management.Automation.PsCredential ($SerivceNowUsername,$password)
-  Write-Log DEBUG "SercieNowUsername is $SerivceNowUsername" $LogPath
+  $credential = New-Object System.Management.Automation.PsCredential ($ServiceNowUsername,$password)
+  Write-Log DEBUG "SercieNowUsername is $ServiceNowUsername" $LogPath
 
   Import-Module ServiceNow
   $connected = Set-ServiceNowAuth -url $ServiceNowURL -Credentials $credential
@@ -92,10 +92,10 @@ if ([string]::IsNullOrEmpty($password)) {
   Write-Host $summary
 
   $IncidentParams = @{ 
-    Caller = "$SerivceNowUsername"
+    Caller = "$ServiceNowUsername"
     ShortDescription = "$summary"
     Description = "$faultsCalc $descr"
-    AssignmentGroup = "$SerivceNowAssignmentGroup"
+    AssignmentGroup = "$ServiceNowAssignmentGroup"
     Comment = "This is an automated incident created by AppDynamics"
 
     CustomFields = @{
@@ -112,7 +112,7 @@ if ([string]::IsNullOrEmpty($password)) {
   $icnum = $snow.number
   Write-Log INFO "Incident number $icnum " $LogPath
   Write-Log INFO "summary=>  $summary " $LogPath
-  Write-Log INFO "Assignment Group=> $SerivceNowAssignmentGroup " $LogPath
+  Write-Log INFO "Assignment Group=> $ServiceNowAssignmentGroup " $LogPath
   
   Write-Host "Incident number- $icnum"
 

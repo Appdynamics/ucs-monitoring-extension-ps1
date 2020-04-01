@@ -57,7 +57,7 @@ The table below contains a description of some of the configuration properties.
 
 | **Config Property Name** | **Description** |
 | --- | --- |
-| UCSPasswordEncyptionKey  | Any string of your choice. This key is used to encrypt and decrypt UCS connection details. |
+| UCSPasswordEncryptionKey  | Any string of your choice. This key is used to encrypt and decrypt UCS connection details. |
 | UCSURL  | Specify the IP Address or domain name of UCS manager. Please do not include the http/s bit |
 | analyticsEndpoint  | This is the analytics endpoint of your controller. This differs depending on the location of your controller. Please refer to this [doc](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges). |
 | X-Events-API-AccountName  | You can get the global account name to use from the [License page](https://docs.appdynamics.com/display/latest/License+Management)  |
